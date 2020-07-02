@@ -23,8 +23,8 @@
 #define RN52_CMD_EXIT               "END\r\n"
 #define RN52_CMD_QUERY              "Q\r"
 #define RN52_CMD_DETAILS            "D\r"
-#define RN52_CMD_RECONNECTLAST      "B,0C\r"
-#define RN52_CMD_DISCONNECT         "K,0C\r"			// 0B is bits 2 and 3, disconnects both A2DP and HFP
+#define RN52_CMD_RECONNECTLAST      "B,04\r"
+#define RN52_CMD_DISCONNECT         "K,04\r"			// 0C is bits 2 and 3, disconnects both A2DP and HFP
 #define RN52_CMD_REBOOT             "R,1\r"
 #define RN52_CMD_VOLUP              "AV+\r"
 #define RN52_CMD_VOLDOWN            "AV-\r"
@@ -33,10 +33,10 @@
 #define RN52_CMD_RESET_PDL          "U\r"               // Reset Paired Device List (PDL)
 
 // RN52 settings commands
-#define RN52_SET_IDLE_TIMEOUT       "S^,600\r"          // Shutdown module after 10 minutes of idle time (not connected)
+#define RN52_SET_IDLE_TIMEOUT       "S^,300\r"          // Shutdown module after 5 minutes of idle time (not connected)
 #define RN52_SET_PAIRING_TIMEOUT    "STP,30\r"          // Set pairing timeout to 30 seconds; upon failure switch to next device on PDL
-#define RN52_SET_DISCOVERY_MASK     "SD,0C\r"           // Enable A2DP/AVRCP profile in discovery mask: 0C allows A2DP and HFP
-#define RN52_SET_CONNECTION_MASK    "SK,0C\r"           // Enable A2DP/AVRCP profile in connection mask: 0C allows A2DP and HFP
+#define RN52_SET_DISCOVERY_MASK     "SD,04\r"           // Enable A2DP/AVRCP profile in discovery mask: 0C allows A2DP and HFP
+#define RN52_SET_CONNECTION_MASK    "SK,04\r"           // Enable A2DP/AVRCP profile in connection mask: 0C allows A2DP and HFP
 #define RN52_SET_COD                "SC,200420\r"       // Sets "CoD" (Class of Device): 200420 is audio device, audio device, car audio
 #define RN52_SET_DEVICE_NAME        "SN,BlueSaab v6\r"  // Broadcasted and shown in audio source's settings
 #define RN52_SET_MAXVOL             "SS,0F\r"           // Sets the volume gain to MAX level 15 (default 11)
