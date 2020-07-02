@@ -17,7 +17,7 @@
 
 #ifndef SAAB_CDC_SIDRESOURCE_H_
 #define SAAB_CDC_SIDRESOURCE_H_
-#define SID_TEXT_CONTROL_ENABLED			1
+#define SID_TEXT_CONTROL_ENABLED			0
 
 #include <rtos.h>
 #include "MessageSender.h"

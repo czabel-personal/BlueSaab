@@ -57,6 +57,7 @@ void RN52::initialize() {
 	queueCommand(RN52_SET_CONNECTION_MASK);
 	queueCommand(RN52_SET_COD);
 	queueCommand(RN52_SET_DEVICE_NAME);
+	queueCommand(RN52_SET_AUDIO);
 	queueCommand(RN52_SET_EXTENDED_FEATURES);
 	queueCommand(RN52_SET_MAXVOL);
 	queueCommand(RN52_SET_IDLE_TIMEOUT);
@@ -132,6 +133,36 @@ void RN52::processCommand(const char *cmd) {
 			if (gotBuf) {
 				lines++;
 				if (isCmd(gotBuf->buf, "BTA=")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "BTName=")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "COD=")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "DiscoveryMask=")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "ConnectionMask")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "AudioConfig=")) {
+					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
+					title[sizeof(title) - 1] = 0;
+					getLog()->log(title);
+				}
+				if (isCmd(gotBuf->buf, "CodecsEnabled=")) {
 					strncpy(title, gotBuf->buf, sizeof(title)); // May not zero terminate
 					title[sizeof(title) - 1] = 0;
 					getLog()->log(title);
